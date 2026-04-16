@@ -17,7 +17,7 @@ if "history" not in st.session_state:
         ("jarvis", "Good evening. Systems look stable.")
     ]
 
-# --- styles (rough draft, not final) ---
+# --- styles (final hopefully if no errors!) ---
 st.markdown("""
 <style>
     body {
@@ -91,6 +91,8 @@ c1.metric("Local Time", now.strftime("%I:%M %p").lstrip("0"), now.strftime("%A")
 c2.metric("Weather", weather.split(",")[0], weather.split(",")[1] if "," in weather else "")
 c3.metric("Disk Usage", f"{used_pct}%", f"{disk.free // (1024**3)} GB free")
 
+'''
+# these look nice but too much info for now and are also repetitive with the panels below, if you want them just uncomment.
 # --- PANELS ---
 left, mid, right = st.columns(3)
 
@@ -114,7 +116,7 @@ with right:
     st.write(f"**Date:** {now.strftime('%b %d, %Y')}")
     st.write(f"**Climate:** {weather}")
     st.write(f"**Storage:** {used_pct}% used")
-
+'''
 # --- COMMAND CONSOLE ---
 st.markdown("### Command Console")
 
