@@ -49,7 +49,7 @@ def respond_to_command(command, weather, system_name, history=None):
         response = OpenAI(api_key=api_key).responses.create(
             model=os.getenv("OPENAI_MODEL", "gpt-4-mini"),
             input=prompt,
-            temperature=0.7,x
+            temperature=0.7,
             max_output_tokens=220,
         )
         text = getattr(response, "output_text", "").strip()
