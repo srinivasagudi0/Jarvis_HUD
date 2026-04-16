@@ -131,7 +131,9 @@ for role, msg in st.session_state.history[-6:]:
 # input form
 with st.form("console", clear_on_submit=True):
     cmd = st.text_input("Issue a command", placeholder="Try: time, weather, status, help")
-    run = st.form_submit_button("Run")
+    run = st.form_submit_button("execute")
+    # will take like 1 hr to implement so just hang in there, I got this, promise.
+    voice = st.checkbox("Voice input (not implemented yet)", disabled=True)
 
 if run and cmd.strip():
     st.session_state.history.append(("user", cmd.strip()))
@@ -140,3 +142,4 @@ if run and cmd.strip():
     st.rerun()
 
 st.caption("Suggested: time • weather • status • who are you • help")
+
