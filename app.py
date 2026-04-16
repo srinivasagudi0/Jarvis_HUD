@@ -91,32 +91,35 @@ c1.metric("Local Time", now.strftime("%I:%M %p").lstrip("0"), now.strftime("%A")
 c2.metric("Weather", weather.split(",")[0], weather.split(",")[1] if "," in weather else "")
 c3.metric("Disk Usage", f"{used_pct}%", f"{disk.free // (1024**3)} GB free")
 
-'''
-# these look nice but too much info for now and are also repetitive with the panels below, if you want them just uncomment.
-# --- PANELS ---
-left, mid, right = st.columns(3)
+# dumb me thought commenting would work in streamlit, instead it just shows up as text.
+def dummy():
+    # these look nice but too much info for now and are also repetitive with the panels below, if you want them just uncomment.
+    # --- PANELS ---
+    left, mid, right = st.columns(3)
 
-with left:
-    st.subheader("Assistant Profile")
-    st.write("**Identity:** JARVIS Core")
-    st.write("**Operator:** Srinivas")
-    st.write(f"**Host:** {host}")
-    st.write("**Mode:** Observing + Assisting")
+    with left:
+        st.subheader("Assistant Profile")
+        st.write("**Identity:** JARVIS Core")
+        st.write("**Operator:** Srinivas")
+        st.write(f"**Host:** {host}")
+        st.write("**Mode:** Observing + Assisting")
 
-with mid:
-    st.subheader("AI Link")
-    st.write("**Backend:** OpenAI Responses API")
-    st.write(f"**Model:** {os.getenv('OPENAI_MODEL', 'gpt-4-mini')}")
-    st.write("**Auth:** OPENAI_API_KEY")
-    st.caption("Using live OpenAI responses now.")
+    with mid:
+        st.subheader("AI Link")
+        st.write("**Backend:** OpenAI Responses API")
+        st.write(f"**Model:** {os.getenv('OPENAI_MODEL', 'gpt-4-mini')}")
+        st.write("**Auth:** OPENAI_API_KEY")
+        st.caption("Using live OpenAI responses now.")
 
-with right:
-    st.subheader("Live Readiness")
-    st.write(f"**Clock:** {now.strftime('%H:%M:%S')}")
-    st.write(f"**Date:** {now.strftime('%b %d, %Y')}")
-    st.write(f"**Climate:** {weather}")
-    st.write(f"**Storage:** {used_pct}% used")
-'''
+    with right:
+        st.subheader("Live Readiness")
+        st.write(f"**Clock:** {now.strftime('%H:%M:%S')}")
+        st.write(f"**Date:** {now.strftime('%b %d, %Y')}")
+        st.write(f"**Climate:** {weather}")
+        st.write(f"**Storage:** {used_pct}% used")
+
+#dummy()
+
 # --- COMMAND CONSOLE ---
 st.markdown("### Command Console")
 
